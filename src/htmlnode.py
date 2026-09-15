@@ -56,7 +56,7 @@ class ParentNode(HTMLNode):
         if self.tag is None:
             raise ValueError("Parent node must have a tag")
         if self.children is None:
-            raise ValueError("Paren node must have a children")
+            raise ValueError("Parent node must have a children")
         
         result = ''
         for leaf in self.children:

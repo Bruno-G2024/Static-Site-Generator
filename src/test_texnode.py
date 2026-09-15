@@ -1,5 +1,5 @@
 import unittest
-from textnode import TextNode, TextType
+from textnode import TextNode, TextType, text_node_to_html_node
 
 
 class TestTextNode(unittest.TestCase):
@@ -21,6 +21,16 @@ class TestTextNode(unittest.TestCase):
         self.assertNotEqual(node, node2)
         self.assertNotEqual(node3, node4)
         self.assertIsInstance(node, TextNode)
+
+    def test_text(self):
+        node = TextNode("This is a text node", TextType.TEXT)
+        node2 = TextNode("This is a image", TextType.IMAGE, "https://www.xdd.com")
+        html_node = text_node_to_html_node(node)
+        html_node2 = text_node_to_html_node(node2)
+        self.assertEqual(html_node.tag, None)
+        self.assertEqual(html_node.value, "This is a text node")
+        self.assertEqual(html_node2.tag, "img")
+        self.assertEqual(html_node2.to_html(), '<img src="https://www.xdd.com" alt="This is a image"></img>')
 
 if __name__ == "__main__":
     unittest.main()

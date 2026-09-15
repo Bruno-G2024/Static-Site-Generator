@@ -61,5 +61,19 @@ class TestHTMLNode(unittest.TestCase):
             "<div><span><b>grandchild</b></span></div>",
     )
 
+    def test_to_html_with_no_children(self):
+        #child_node = LeafNode("span", "child")
+        parent_node = ParentNode("div", [])
+        self.assertEqual(parent_node.to_html(), '')
+
+    def test_to_html_with_prop(self):
+        new_prop = {
+                    "href": "https://www.google.com",
+                    "target": "_blank",
+        }
+        child_node = LeafNode("span", "child")
+        parent_node = ParentNode("abc", [child_node], new_prop)
+        self.assertEqual(parent_node.to_html(), '<abc><span>child</span> href="https://www.google.com" target="_blank"</abc>')
+
 if __name__ == "__main__":
     unittest.main()
