@@ -94,4 +94,27 @@ def text_to_textnode(text: str) -> list[TextNode]:
 
     return link_split
 
-#print(text_to_textnode("This is **text** with an _italic_ **word** and a `code block` and an ![obi wan image](https://i.imgur.com/fJRm4Vk.jpeg) and a [link](https://boot.dev) and also ![anashe](https://i.imgur.com/ofkvjs.jpeg) to"))
+def markdown_to_blocks(markdown: str) -> list[str]:
+    blocks = markdown.split('\n\n')
+
+    new_blocks = []
+
+    for block in blocks:
+        if block == None:
+            continue
+        new_blocks.append(block.strip())
+    
+    return new_blocks 
+
+# md = """
+# This is **bolded** paragraph
+
+# This is another paragraph with _italic_ text and `code` here
+# This is the same paragraph on a new line
+
+# - This is a list
+# - with items
+# """
+
+# blocks = markdown_to_blocks(md)
+# print(blocks)
