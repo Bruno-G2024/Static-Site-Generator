@@ -64,7 +64,7 @@ class TestHTMLNode(unittest.TestCase):
     def test_to_html_with_no_children(self):
         #child_node = LeafNode("span", "child")
         parent_node = ParentNode("div", [])
-        self.assertEqual(parent_node.to_html(), '')
+        self.assertEqual(parent_node.to_html(), '<div></div>')
 
     def test_to_html_with_prop(self):
         new_prop = {
@@ -73,7 +73,7 @@ class TestHTMLNode(unittest.TestCase):
         }
         child_node = LeafNode("span", "child")
         parent_node = ParentNode("abc", [child_node], new_prop)
-        self.assertEqual(parent_node.to_html(), '<abc><span>child</span> href="https://www.google.com" target="_blank"</abc>')
+        self.assertEqual(parent_node.to_html(), '<abc href="https://www.google.com" target="_blank"><span>child</span></abc>')
 
 if __name__ == "__main__":
     unittest.main()

@@ -15,7 +15,7 @@ class HTMLNode():
         raise NotImplementedError
 
     def props_to_html(self):
-        props = ""
+        props = ''
         if self.props == "" or self.props == None:
             return props
         for prop in self.props:
@@ -60,8 +60,8 @@ class ParentNode(HTMLNode):
         
         result = ''
         for leaf in self.children:
-            result += f'<{self.tag}>{leaf.to_html()}{self.props_to_html()}</{self.tag}>'
-        return result
+            result += f'{leaf.to_html()}'
+        return f'<{self.tag}{self.props_to_html()}>{result}</{self.tag}>'
 
     def __repr__(self) -> str:
         return f"Tag: {self.tag}, Children: {self.children}, Props: {self.props}"

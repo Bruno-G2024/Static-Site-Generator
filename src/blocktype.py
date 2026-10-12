@@ -32,10 +32,10 @@ def block_to_block_type(mdblock: str) -> BlockType:
             if not line.startswith(f'{i}. '):
                 return BlockType.PARAGRAPH
             i += 1
-        return BlockType.UNORDERED_LIST
+        return BlockType.ORDERED_LIST
     
     return BlockType.PARAGRAPH
 
-block = 'This is a new heading block\n> skdvnsod'
+# block = '> This is a new heading block\n> skdvnsod'
 
-print(block_to_block_type(block))
+# print(block_to_block_type(block))
