@@ -205,8 +205,8 @@ This is a text with a list
 2. this- is the second line whit a _italic_ word
 3. This is the third line with a **bolded** word
 """
-blocks = markdown_to_html_node(md5)
-html = blocks.to_html()
-print(html)
+# blocks = markdown_to_html_node(md5)
+#html = blocks.to_html()
+#print(html)
 #print(text_to_children(md2))
 #print(text_to_text_code(md3).to_html())
